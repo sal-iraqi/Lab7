@@ -47,16 +47,6 @@ self.addEventListener('fetch', function(event) {
 });
 
 
-fetch(url, {
-credentials: 'include'
-})
-
-cache.addAll(urlsToPrefetch.map(function(urlToPrefetch) {
-return new Request(urlToPrefetch, { mode: 'no-cors' });
-})).then(function() {
-console.log('All resources have been fetched and cached.');
-});
-
 self.addEventListener('activate', event => {
   event.waitUntil(clients.claim());
 });
