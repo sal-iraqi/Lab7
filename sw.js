@@ -77,3 +77,6 @@ return new Request(urlToPrefetch, { mode: 'no-cors' });
 console.log('All resources have been fetched and cached.');
 });
 
+self.addEventListener('activate', event => {
+  event.waitUntil(clients.claim());
+});
